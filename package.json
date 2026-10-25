@@ -1,0 +1,87 @@
+{
+  "name": "pi-topo",
+  "version": "0.2.0",
+  "description": "一个命令组织多 agent 协作：/topo 读项目、给方案、写 topo.md",
+  "type": "module",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/WanKun824/pi-topo.git"
+  },
+  "homepage": "https://github.com/WanKun824/pi-topo#readme",
+  "bugs": {
+    "url": "https://github.com/WanKun824/pi-topo/issues"
+  },
+  "keywords": [
+    "pi-package",
+    "pi",
+    "pi-coding-agent",
+    "subagents",
+    "orchestration",
+    "topo"
+  ],
+  "engines": {
+    "node": ">=22"
+  },
+  "scripts": {
+    "test": "node --test \"test/*.test.mjs\"",
+    "typecheck": "tsc --noEmit",
+    "check": "npm run typecheck && npm test"
+  },
+  "pi": {
+    "extensions": [
+      "./index.ts"
+    ],
+    "skills": [
+      "./vendor/pi-subagents/skills"
+    ],
+    "prompts": [
+      "./prompts",
+      "./vendor/pi-subagents/prompts"
+    ]
+  },
+  "dependencies": {
+    "@js-temporal/polyfill": "0.5.1",
+    "acorn": "8.18.0",
+    "jiti": "2.7.0",
+    "undici": "8.10.2",
+    "yaml": "2.8.3"
+  },
+  "peerDependencies": {
+    "@earendil-works/pi-agent-core": "*",
+    "@earendil-works/pi-ai": ">=0.86.1",
+    "@earendil-works/pi-coding-agent": "*",
+    "@earendil-works/pi-tui": "*",
+    "typebox": "*"
+  },
+  "peerDependenciesMeta": {
+    "@earendil-works/pi-agent-core": {
+      "optional": true
+    },
+    "@earendil-works/pi-ai": {
+      "optional": true
+    },
+    "@earendil-works/pi-coding-agent": {
+      "optional": true
+    },
+    "@earendil-works/pi-tui": {
+      "optional": true
+    },
+    "typebox": {
+      "optional": true
+    }
+  },
+  "files": [
+    "index.ts",
+    "prompts/",
+    "vendor/",
+    "README.md",
+    "CHANGELOG.md",
+    "LICENSE"
+  ],
+  "devDependencies": {
+    "@earendil-works/pi-coding-agent": "^0.87.0",
+    "@types/node": "^24.13.3",
+    "typescript": "^5.9.3"
+  }
+}
